@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block title %}Panel - Queue{% endblock %}
+
+{% block body %}
+    <div id="queue">
+        <i class="fa fa-plus" id="add" onclick="addRowPanel()"></i>
+        {%for i in range(0, len)%} 
+            <div class="line"><p class="part1">{{data[i][0]}}. {{data[i][1]}}</p><p class="part2"> ({{data[i][2]}}) has  {{data[i][3]}} claims left. <i class="fa fa-pencil"></i><i class="fa fa-trash-o"></i></p></div>
+        {%endfor%} 
+    </div>
+
+    <div class="form panel-center" id="editor">
+        <p id="closeEditor" onclick="closeEditor()">✕</p>
+        <label class="label" for="name">Claim Amount</label>
+        <input type="text" name="new_claims" id="new_claims" placeholder="1">
+        <input type="submit" value="Save" class="button-neon" id="save-btn">
+    </div>
+
+    <div class="form panel-center" id="addRow">
+        <p id="closeAddRow" onclick="closeAddRow()">✕</p>
+        <label class="label" for="name">User ID</label>
+        <input type="text" name="userid" id="userid" placeholder="918454088092516362">
+        <label class="label" for="name">Claim Amount</label>
+        <input type="text" name="claims" id="claims" placeholder="1">
+        <label class="label" for="name">Token</label>
+        <input type="text" name="token" id="token" placeholder="OTv0NjA1OTY5NkkzMzUhOTEy.GWvpyt.GDnhET_3hPmuCP_o-n8mN5vS_CvZihJqvkr_D8">
+        <input type="submit" value="Add" class="button-neon" id="save-btn" onclick="addRow()">
+    </div>
+
+    <script>
+        var elements = document.getElementsByClassName("part2");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].getElementsByTagName("i")[0].setAttribute("onclick", "edit(" + (i+0) + ")");
+            elements[i].getElementsByTagName("i")[1].setAttribute("onclick", "remove(" + (i+0) + ")");
+        }
+
+        var elements = document.getElementsByClassName("part1");
+        for (let i = 0; i < elements.length; i++) {
+            if (i==0) {
+                if (elements.length > 1){
+                    var NFE = document.createElement('i');
+                    NFE.setAttribute("class", "fa fa-arrow-down")
+                    var down = elements[i].insertBefore(NFE, elements[i].firstChild);
+                    down.setAttribute("onclick", "down(" + (i+0) + ")");
+                }
+            } else if ((i+1)==elements.length) {
+                var NFE = document.createElement('i');
+                NFE.setAttribute("class", "fa fa-arrow-up")
+                var up = elements[i].insertBefore(NFE, elements[i].firstChild);
+                up.setAttribute("onclick", "up(" + (i+0) + ")");
+            } else {
+                var NFE = document.createElement('i');
+                NFE.setAttribute("class", "fa fa-arrow-down")
+                var down = elements[i].insertBefore(NFE, elements[i].firstChild);
+                down.setAttribute("onclick", "down(" + (i+0) + ")");
+                
+                var NFE = document.createElement('i');
+                NFE.setAttribute("class", "both fa fa-arrow-up")
+                var up = elements[i].insertBefore(NFE, elements[i].firstChild);
+                up.setAttribute("onclick", "up(" + (i+0) + ")");
+            }
+                
+        }
+
+    </script>
+{% endblock %}

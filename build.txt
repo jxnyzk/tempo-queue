@@ -1,0 +1,5 @@
+pyarmor-7 pack -e " --onefile --add-data='templates/*:templates' " main.py
+pyarmor-7 pack -e " --add-data='templates/*:templates' " main.py
+pyinstaller --onefile --add-data='templates/*:templates' main.py
+
+pyarmor-7 pack -e " --onefile " main.py

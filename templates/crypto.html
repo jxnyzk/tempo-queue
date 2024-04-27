@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}Panel - Cryptos{% endblock %}
+
+{% block body %}
+    <div class="form panel-center">
+            <h1 id="config-editor-text">Addresses</h1>
+            {%for i in range(0, len)%} 
+                <label class="label">{{data[i][0]}}</label>
+                <input type="text" id="{{data[i][0]}}" placeholder="Address" value="{{data[i][1]}}">
+            {%endfor%}             
+        <input type="submit" value="Save" onclick="saveCrypto()" class="button-neon" id="save-btn">
+    </div>
+{% endblock %}

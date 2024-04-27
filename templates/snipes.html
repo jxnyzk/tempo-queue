@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}Panel - Snipes{% endblock %}
+
+{% block body %}
+<div class="snipes">
+        <div class="col">
+          <div class="card bg-default shadow">
+
+            <div class="table-responsive">
+              <table class="table align-items-center table-dark table-flush">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Delay</th>
+                    <th scope="col">Discord</th>
+                    <th scope="col">Claims Left</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {%for i in range(0, len)%} 
+                <tr><th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <span class="mb-0 text-sm">{{data[i][1]}}</span>
+                    </div>
+                  </div>
+                  </th>
+                  <td>{{data[i][2]}}</td>
+                  <td>
+                    <span class="badge badge-dot mr-4">{{data[i][3]}}</span>
+                  </td>
+                    <td><div class="d-flex align-items-center"><span class="mr-2">{{data[i][4]}}</span></div></td>
+                  </tr>
+                  {%endfor%}
+                
+                </tbody>
+
+              </table>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

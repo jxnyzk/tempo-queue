@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1141328557075877899/1155433944385335406/3.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.discordapp.com/attachments/1141328557075877899/1155441508401549322/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Login</title>
+  
+</head>
+<body>     
+
+    <div id="login">
+        <h1>Login</h1>
+        <br>
+        <input placeholder="Login Token" id="login-token"></input>
+        <br>
+        <input type="submit" value="Login" onclick="login()" class="button-neon">
+    </div>
+    
+    <p id="tempo">Tempo Queue Bot</p>
+
+    <script>
+        function login(){
+            window.location.replace("/login/" + document.getElementById("login-token").value);
+        }
+    </script>
+    
+</body>
+</html>

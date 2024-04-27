@@ -1,0 +1,1 @@
+binaries=[(r"C:\Users\Andrei\Desktop\TQueueBot\dist\obf\_pytransform*", ".")]
